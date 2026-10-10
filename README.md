@@ -2,13 +2,22 @@
 
 Recovered Bomb Rush Cyberfunk Unity project, targeting **Unity 2021.3.27f1** and the built-in render pipeline.
 
+Install [Git LFS](https://git-lfs.com/), then clone the complete project, including its large assets:
+
+```bash
+git lfs install
+git clone https://github.com/shahrdazri-ctrl/CODEX-RE1.git
+cd CODEX-RE1
+git lfs pull
+```
+
 Open this repository's root in Unity Hub using that Editor version. Let the initial import finish, then use **Recovery > Open Bootstrap** and press Play. The first import is large: the recovered assets occupy about 10 GB before Unity creates its Library.
 
 The project contains 13 scenes, meshes, character and environment prefabs, textures, animation clips, music, sound effects, video, localization data, and decompiled runtime C#. Game source is under `Assets/Scripts/Assembly-CSharp`; first-pass source is under `Assets/Plugins/Assembly-CSharp-firstpass`. Vendor runtime DLLs are retained in `Assets/Plugins`.
 
 Editor play mode loads the recovered assets through AssetDatabase and opens the recovered scenes directly. Asset edits therefore do not require rebuilding the shipped bundles. Player builds use the original bundle loading path: select a platform in Build Settings, run **Recovery > Build Bundles for Active Target**, then build the player. The supplied StreamingAssets bundles are the original Windows payloads; rebuild them before shipping edited content or another platform.
 
-Large binary assets, bundles, and large serialized files use **Git LFS**. Install Git LFS and run `git lfs pull` after cloning a published copy. The current working tree already contains the full asset data.
+Large binary assets, bundles, and large serialized files use **Git LFS**. The clone and pull commands above download their contents into the project.
 
 Cloud checks passed for both recovered runtime assemblies, all 253 installed manifest files, all 2,364 audio probes, 3,100 reconstructed shader stage/keyword combinations, and 35 post-processing compute kernels. The asset GUID audit found no duplicate or unresolved external references. Detailed results and reconstruction provenance are in `Recovery`. Unity Editor import, actual rendering, and gameplay checks must run locally; see [the local verification checklist](Recovery/LOCAL_UNITY_CHECKS.md).
 
