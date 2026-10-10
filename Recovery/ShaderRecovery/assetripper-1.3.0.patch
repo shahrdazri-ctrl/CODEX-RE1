@@ -1,0 +1,410 @@
+--- a/Source/AssetRipper.Export.Modules.Shader/UltraShaderConverter/USIL/Metadders/USILCBufferMetadder.cs
++++ b/Source/AssetRipper.Export.Modules.Shader/UltraShaderConverter/USIL/Metadders/USILCBufferMetadder.cs
+@@ -40,14 +40,14 @@
+ 			HashSet<NumericShaderParameter> cbParams = new HashSet<NumericShaderParameter>();
+ 			List<int> cbMasks = new List<int>();
+ 
+-			BufferBinding binding = shaderData.ConstantBufferBindings.First(b => b.Index == cbRegIdx);
++			BufferBinding binding = shaderData.ConstantBufferBindings.FirstOrDefault(b => b.Index == cbRegIdx) ?? throw new InvalidDataException($"Missing CB{cbRegIdx}; bindings={string.Join(",", shaderData.ConstantBufferBindings.Select(b => $"{b.Index}:{b.Name}"))}; buffers={string.Join(",", shaderData.ConstantBuffers.Select(b => $"{b.Name}[{b.Size}]"))}; globals={string.Join(",", shaderData.VectorParameters.Select(b => b.Name))}");
+ 			ConstantBuffer constantBuffer = shaderData.ConstantBuffers.First(b => b.Name == binding.Name);
+ 
+ 			// Search children fields
+ 			foreach (NumericShaderParameter param in constantBuffer.AllNumericParams)
+ 			{
+ 				int paramCbStart = param.Index;
+-				int paramCbSize = param.RowCount * param.ColumnCount * 4;
++				int paramCbSize = param.ArraySize > 0 ? (param.ArraySize - 1) * param.RowCount * 16 + param.RowCount * param.ColumnCount * 4 : param.RowCount * param.ColumnCount * 4;
+ 				int paramCbEnd = paramCbStart + paramCbSize;
+ 
+ 				foreach (int operandMaskAddress in operandMaskAddresses)
+@@ -57,7 +57,7 @@
+ 						cbParams.Add(param);
+ 
+ 						int maskIndex = (operandMaskAddress - paramCbStart) / 4;
+-						if (param.IsMatrix)
++						if (param.IsMatrix || param.ArraySize > 0)
+ 						{
+ 							maskIndex %= 4;
+ 						}
+@@ -110,7 +110,7 @@
+ 					childOperand.metadataNameAssigned = true;
+ 					childOperand.arrayRelative = operand.arrayRelative;
+ 					childOperand.arrayIndex -= param.Index / 16;
+-					childOperand.metadataNameWithArray = operand.arrayRelative != null && !param.IsMatrix;
++					childOperand.metadataNameWithArray = (operand.arrayRelative != null || param.ArraySize > 0) && !param.IsMatrix;
+ 
+ 					operand.children[i++] = childOperand;
+ 				}
+@@ -136,7 +136,7 @@
+ 				operand.mask = cbMasks.ToArray();
+ 				operand.metadataName = param.Name;
+ 				operand.metadataNameAssigned = true;
+-				operand.metadataNameWithArray = operand.arrayRelative != null && !param.IsMatrix;
++				operand.metadataNameWithArray = (operand.arrayRelative != null || param.ArraySize > 0) && !param.IsMatrix;
+ 
+ 				if (cbMasks.Count == param.RowCount && !param.IsMatrix)
+ 				{
+--- a/Source/AssetRipper.Export.Modules.Shader/UltraShaderConverter/UShader/Function/UShaderFunctionToHLSL.cs
++++ b/Source/AssetRipper.Export.Modules.Shader/UltraShaderConverter/UShader/Function/UShaderFunctionToHLSL.cs
+@@ -437,6 +437,15 @@
+ 	{
+ 		List<USILOperand> srcOps = inst.srcOperands;
+ 		USILOperand textureOperand = srcOps[2];
++
++        if (inst.instructionType == USILInstructionType.SampleComparison || inst.instructionType == USILInstructionType.SampleComparisonLODZero)
++        {
++            string sample = textureOperand.operandType == USILOperandType.SamplerCube
++                ? $"UNITY_SAMPLE_TEXCUBE_SHADOW({srcOps[2]}, float4({srcOps[0]}, ({srcOps[3]}).x))"
++                : $"UNITY_SAMPLE_SHADOW({srcOps[2]}, float3({srcOps[0]}, ({srcOps[3]}).x))";
++            AppendLine($"{CommentString(inst)}{inst.destOperand} = {sample};");
++            return;
++        }
+ 		int samplerTypeIdx = inst.instructionType == USILInstructionType.Sample ? 3 : 4;
+ 		bool samplerType = srcOps[samplerTypeIdx].immValueInt[0] == 1;
+ 		string args = $"{srcOps[2]}, {srcOps[0]}";
+--- a/Source/AssetRipper.Export.UnityProjects/Shaders/USCShaderExporter.cs
++++ b/Source/AssetRipper.Export.UnityProjects/Shaders/USCShaderExporter.cs
+@@ -212,6 +212,24 @@
+ 					}
+ 				}
+ 
++                string[] Keywords(ShaderSubProgram p) => p.GlobalKeywords.Concat(p.LocalKeywords).Distinct().OrderBy(x => x).ToArray();
++                var allPrograms = (vertexSubPrograms ?? new()).Concat(fragmentSubPrograms ?? new()).ToList();
++                var allKeywords = allPrograms.SelectMany(Keywords).Distinct().OrderBy(x => x).ToArray();
++                var combos = allPrograms.Select(Keywords).GroupBy(k => string.Join("|", k)).Select(g => g.First()).OrderByDescending(k => k.Length).ToList();
++                ShaderSubProgram Select(List<ShaderSubProgram> programs, string[] combo) => programs
++                    .Where(p => Keywords(p).All(combo.Contains)).OrderByDescending(p => Keywords(p).Length).FirstOrDefault() ?? programs[0];
++                writer.WriteLine("CGPROGRAM");
++                writer.WriteLine("#pragma vertex vert");
++                writer.WriteLine("#pragma fragment frag");
++                writer.WriteLine("#pragma target 3.0");
++                writer.WriteLine("#pragma multi_compile_instancing");
++                foreach (string keyword in allKeywords) writer.WriteLine("#pragma multi_compile __ " + keyword);
++                for (int variant = 0; variant < combos.Count; variant++)
++                {
++                    var combo = combos[variant];
++                    if (variant == combos.Count - 1) writer.WriteLine(variant == 0 ? "#if 1" : "#else");
++                    else writer.WriteLine((variant == 0 ? "#if " : "#elif ") + string.Join(" && ", allKeywords.Select(k => (combo.Contains(k) ? "defined(" : "!defined(") + k + ")")));
++
+ 				ShaderSubProgram? vertexSubProgram = null;
+ 				ShaderSubProgram? fragmentSubProgram = null;
+ 				USCShaderConverter? vertexConverter = null;
+@@ -219,7 +237,7 @@
+ 
+ 				if (hasVertex)
+ 				{
+-					vertexSubProgram = vertexSubPrograms![0];
++					vertexSubProgram = Select(vertexSubPrograms!, combo);
+ 
+ 					byte[] trimmedProgramData = TrimShaderBytes(vertexSubProgram, writer.Version, writer.Platform);
+ 
+@@ -228,31 +246,12 @@
+ 				}
+ 				if (hasFragment)
+ 				{
+-					fragmentSubProgram = fragmentSubPrograms![0];
++					fragmentSubProgram = Select(fragmentSubPrograms!, combo);
+ 
+ 					byte[] trimmedProgramData = TrimShaderBytes(fragmentSubProgram, writer.Version, writer.Platform);
+ 
+ 					fragmentConverter = new USCShaderConverter();
+ 					fragmentConverter.LoadDirectXCompiledShader(new MemoryStream(trimmedProgramData));
+-				}
+-
+-				writer.WriteIndent(3);
+-				writer.WriteLine("CGPROGRAM");
+-
+-				if (hasVertex)
+-				{
+-					writer.WriteIndent(3);
+-					writer.WriteLine("#pragma vertex vert");
+-				}
+-				if (hasFragment)
+-				{
+-					writer.WriteIndent(3);
+-					writer.WriteLine("#pragma fragment frag");
+-				}
+-				if (hasVertex || hasFragment)
+-				{
+-					writer.WriteIndent(3);
+-					writer.WriteLine("");
+ 				}
+ 
+ 				writer.WriteIndent(3);
+@@ -428,6 +427,8 @@
+ 					writer.WriteLine("}");
+ 				}
+ 
++                }
++                writer.WriteLine("#endif");
+ 				writer.WriteIndent(3);
+ 				writer.WriteLine("ENDCG");
+ 			}
+@@ -639,155 +640,61 @@
+ 			}
+ 
+ 			// skip instanced shaders
+-			Utf8String INSTANCING_ON = (Utf8String)"INSTANCING_ON"u8;
+-			if (pass.NameIndices.ContainsKey(INSTANCING_ON))
+-			{
+-				if (program.Has_PlayerSubPrograms())
+-				{
+-					ISerializedPlayerSubProgram playerSubProgram = program.GetPlayerSubPrograms()[i];
+-					for (int j = 0; j < playerSubProgram.KeywordIndices.Count; j++)
+-					{
+-						if (pass.NameIndices[INSTANCING_ON] == playerSubProgram.KeywordIndices[j])
+-						{
+-							matched = false;
+-						}
+-					}
+-				}
+-				else
+-				{
+-					ISerializedSubProgram subProgram = program.SubPrograms[i];
+-					if (subProgram.GlobalKeywordIndices != null)
+-					{
+-						for (int j = 0; j < subProgram.GlobalKeywordIndices.Count; j++)
+-						{
+-							if (pass.NameIndices[INSTANCING_ON] == subProgram.GlobalKeywordIndices[j])
+-							{
+-								matched = false;
+-							}
+-						}
+-					}
+-					if (subProgram.LocalKeywordIndices != null)
+-					{
+-						for (int j = 0; j < subProgram.LocalKeywordIndices.Count; j++)
+-						{
+-							if (pass.NameIndices[INSTANCING_ON] == subProgram.LocalKeywordIndices[j])
+-							{
+-								matched = false;
+-							}
+-						}
+-					}
+-				}
+-			}
+-
+-			Utf8String DIRECTIONAL = (Utf8String)"DIRECTIONAL";
+-			bool hasDirectional = false;
+-			bool matchesDirectional = false;
+-			if (pass.NameIndices.ContainsKey(DIRECTIONAL))
+-			{
+-				hasDirectional = true;
+-				if (program.Has_PlayerSubPrograms())
+-				{
+-					ISerializedPlayerSubProgram playerSubProgram = program.GetPlayerSubPrograms()[i];
+-					for (int j = 0; j < playerSubProgram.KeywordIndices.Count; j++)
+-					{
+-						if (pass.NameIndices[DIRECTIONAL] == playerSubProgram.KeywordIndices[j])
+-						{
+-							matchesDirectional = true;
+-						}
+-					}
+-				}
+-				else
+-				{
+-					ISerializedSubProgram subProgram = program.SubPrograms[i];
+-					if (subProgram.GlobalKeywordIndices != null)
+-					{
+-						for (int j = 0; j < subProgram.GlobalKeywordIndices.Count; j++)
+-						{
+-							if (pass.NameIndices[DIRECTIONAL] == subProgram.GlobalKeywordIndices[j])
+-							{
+-								matchesDirectional = true;
+-							}
+-						}
+-					}
+-					if (subProgram.LocalKeywordIndices != null)
+-					{
+-						for (int j = 0; j < subProgram.LocalKeywordIndices.Count; j++)
+-						{
+-							if (pass.NameIndices[DIRECTIONAL] == subProgram.LocalKeywordIndices[j])
+-							{
+-								matchesDirectional = true;
+-							}
+-						}
+-					}
+-				}
+-			}
+-
+-			Utf8String POINT = (Utf8String)"POINT";
+-			bool hasPoint = false;
+-			bool matchesPoint = false;
+-			if (pass.NameIndices.ContainsKey(POINT))
+-			{
+-				hasPoint = true;
+-				if (program.Has_PlayerSubPrograms())
+-				{
+-					ISerializedPlayerSubProgram playerSubProgram = program.GetPlayerSubPrograms()[i];
+-					for (int j = 0; j < playerSubProgram.KeywordIndices.Count; j++)
+-					{
+-						if (pass.NameIndices[POINT] == playerSubProgram.KeywordIndices[j])
+-						{
+-							matchesPoint = true;
+-						}
+-					}
+-				}
+-				else
+-				{
+-					ISerializedSubProgram subProgram = program.SubPrograms[i];
+-					if (subProgram.GlobalKeywordIndices != null)
+-					{
+-						for (int j = 0; j < subProgram.GlobalKeywordIndices.Count; j++)
+-						{
+-							if (pass.NameIndices[POINT] == subProgram.GlobalKeywordIndices[j])
+-							{
+-								matchesPoint = true;
+-							}
+-						}
+-					}
+-					if (subProgram.LocalKeywordIndices != null)
+-					{
+-						for (int j = 0; j < subProgram.LocalKeywordIndices.Count; j++)
+-						{
+-							if (pass.NameIndices[POINT] == subProgram.LocalKeywordIndices[j])
+-							{
+-								matchesPoint = true;
+-							}
+-						}
+-					}
+-				}
+-			}
+-
+-			if ((hasDirectional || hasPoint) && !matchesDirectional && !matchesPoint)
+-			{
+-				matched = false;
+-			}
+-
+-			if (matchedProgram != null)
+-			{
+-				if (matched)
+-				{
+-					matchingPrograms.Add(matchedProgram);
+-				}
+-				else if (fallbackProgram == null)
+-				{
+-					// we don't want a case where no programs match, so pick at least one
+-					fallbackProgram = matchedProgram;
+-				}
+-			}
+-		}
+-
+-		if (matchingPrograms.Count == 0 && fallbackProgram != null)
+-		{
+-			matchingPrograms.Add(fallbackProgram);
+-		}
++
++            if (matchedProgram != null && program.CommonParameters != null)
++            {
++                string ResolveName(int index)
++                {
++                    for (int k = 0; k < pass.NameIndices.Count; k++)
++                        if (pass.NameIndices.GetValue(k) == index) return pass.NameIndices.GetKey(k).String;
++                    throw new InvalidDataException($"No shader parameter name for index {index}");
++                }
++                if (program.Has_PlayerSubPrograms())
++                {
++                    var keywords = new List<string>();
++                    foreach (var keyword in program.GetPlayerSubPrograms()[i].KeywordIndices)
++                        keywords.Add(shader.ParsedForm.KeywordNames![keyword].String);
++                    matchedProgram.GlobalKeywords = keywords.ToArray();
++                }
++                var common = program.CommonParameters;
++                var bindings = matchedProgram.ConstantBufferBindings.ToList();
++                foreach (var binding in common.ConstantBufferBindings)
++                    if (!bindings.Any(b => b.Index == binding.Index))
++                        bindings.Add(new BufferBinding(ResolveName(binding.NameIndex), binding.Index) { ArraySize = binding.ArraySize });
++                matchedProgram.ConstantBufferBindings = bindings.ToArray();
++                var buffers = matchedProgram.ConstantBuffers.ToList();
++                foreach (var cb in common.ConstantBuffers)
++                {
++                    var name = ResolveName(cb.NameIndex);
++                    var target = buffers.FirstOrDefault(b => b.Name == name);
++                    if (target == null) { target = new ConstantBuffer { Name = name, Size = cb.Size }; buffers.Add(target); }
++                    var vectors = target.VectorParams.ToList();
++                    foreach (var v in cb.VectorParams)
++                        if (!vectors.Any(p => p.Index == v.Index))
++                            vectors.Add(new VectorParameter(ResolveName(v.NameIndex), (ShaderParamType)v.Type, v.Index, v.ArraySize, v.Dim));
++                    target.VectorParams = vectors.ToArray();
++                    var matrices = target.MatrixParams.ToList();
++                    foreach (var m in cb.MatrixParams)
++                        if (!matrices.Any(p => p.Index == m.Index))
++                            matrices.Add(new MatrixParameter(ResolveName(m.NameIndex), (ShaderParamType)m.Type, m.Index, m.ArraySize, m.RowCount, 4));
++                    target.MatrixParams = matrices.ToArray();
++                }
++                matchedProgram.ConstantBuffers = buffers.ToArray();
++                var textures = matchedProgram.TextureParameters.ToList();
++                foreach (var t in common.TextureParams)
++                    if (!textures.Any(p => p.Index == t.Index))
++                        textures.Add(new TextureParameter(ResolveName(t.NameIndex), t.Index, checked((byte)t.Dim), t.SamplerIndex, t.MultiSampled));
++                matchedProgram.TextureParameters = textures.ToArray();
++                var samplers = matchedProgram.SamplerParameters.ToList();
++                foreach (var sampler in common.Samplers)
++                    if (!samplers.Any(p => p.BindPoint == sampler.BindPoint))
++                        samplers.Add(new SamplerParameter(sampler.Sampler, sampler.BindPoint));
++                matchedProgram.SamplerParameters = samplers.ToArray();
++            }
++
++            if (matchedProgram != null && !matchedProgram.GlobalKeywords.Contains("INSTANCING_ON"))
++                matchingPrograms.Add(matchedProgram);
++        }
+ 
+ 		return matchingPrograms;
+ 	}
+--- a/Source/AssetRipper.Import/Structure/Assembly/Managers/MethodOverrideNameFixer.cs
++++ b/Source/AssetRipper.Import/Structure/Assembly/Managers/MethodOverrideNameFixer.cs
+@@ -1,50 +1,10 @@
+ using Cpp2IL.Core.Api;
+ using Cpp2IL.Core.Model.Contexts;
+-using System.Diagnostics;
+-
+ namespace AssetRipper.Import.Structure.Assembly.Managers;
+-
+-/// <summary>
+-/// Method names do not always match the names of the methods they override (eg because of obfuscation). This class fixes that.
+-/// </summary>
+ internal sealed class MethodOverrideNameFixer : Cpp2IlProcessingLayer
+ {
+-	public override string Name => nameof(MethodOverrideNameFixer);
+-
+-	public override string Id => Name;
+-
+-	public override void Process(ApplicationAnalysisContext appContext, Action<int, int>? progressCallback = null)
+-	{
+-		HashSet<MethodAnalysisContext> methodsAnalyzed = new();
+-		foreach (MethodAnalysisContext method in appContext.AllTypes.SelectMany(t => t.Methods))
+-		{
+-			AnalyzeMethod(method, methodsAnalyzed);
+-		}
+-	}
+-
+-	private static void AnalyzeMethod(MethodAnalysisContext method, HashSet<MethodAnalysisContext> methodsAnalyzed)
+-	{
+-		Debug.Assert(method is not ConcreteGenericMethodAnalysisContext);
+-
+-		if (methodsAnalyzed.Contains(method))
+-			return;
+-
+-		MethodAnalysisContext? baseMethod = method.BaseMethod;
+-		if (baseMethod is null)
+-			return;
+-
+-		if (baseMethod is ConcreteGenericMethodAnalysisContext concreteGenericMethod)
+-		{
+-			AnalyzeMethod(concreteGenericMethod.BaseMethodContext, methodsAnalyzed);
+-		}
+-		else
+-		{
+-			AnalyzeMethod(baseMethod, methodsAnalyzed);
+-		}
+-
+-		if (baseMethod.Name != method.Name)
+-		{
+-			method.OverrideName = baseMethod.Name;
+-		}
+-	}
++ public override string Name => nameof(MethodOverrideNameFixer);
++ public override string Id => Name;
++ public override void Process(ApplicationAnalysisContext appContext, Action<int, int>? progressCallback = null)
++  => throw new NotSupportedException("This local shader recovery build supports Mono inputs only; the historical Cpp2IL package is unavailable.");
+ }

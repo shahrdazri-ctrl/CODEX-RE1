@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577721a21436dfb7ce29dfde3b3d54db, type: 3}
+  m_Name: MusicLibrary
+  m_EditorClassIdentifier:
+  playlistDictionary:
+    keys:
+    - StagePlaylist
+    values:
+    - {fileID: 11400000, guid: 0e55562df032aaf43a4c9863f11bbf80, type: 2}
+  musicTrackDictionary:
+    keys:
+    - Cyberfunk_Mixtape
+    - Chapter1_Mixtape
+    - Chapter2_Mixtape
+    - Chapter3_Mixtape
+    - Chapter4_Mixtape
+    - Chapter5_Mixtape
+    - Hideout_Mixtape
+    - MainMenu_Music
+    - Prelude_Music
+    - Silence_Music
+    values:
+    - {fileID: 11400000, guid: fad60e1c77a26b949b2246eada6bdaaa, type: 2}
+    - {fileID: 11400000, guid: fad60e1c77a26b949b2246eada6bdaaa, type: 2}
+    - {fileID: 11400000, guid: 0122862bd179f8649a80a44923bbccaf, type: 2}
+    - {fileID: 11400000, guid: 2f573496c2a69e14c89570f6749092d5, type: 2}
+    - {fileID: 11400000, guid: 4b6178bac25f6a94299660e0eae0cd37, type: 2}
+    - {fileID: 11400000, guid: 073cce9ee3061be4399aa4af57b05a6e, type: 2}
+    - {fileID: 11400000, guid: 1bfff8104c12e1e4aa3767bee71ceb70, type: 2}
+    - {fileID: 11400000, guid: 647a272c8ded6e74aadd0948bf4e48fb, type: 2}
+    - {fileID: 11400000, guid: b7f2883a85bb8de45843f656962ca30c, type: 2}
+    - {fileID: 11400000, guid: 0e9f076b27bd113438bc923b28d663db, type: 2}

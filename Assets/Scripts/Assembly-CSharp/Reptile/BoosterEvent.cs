@@ -1,0 +1,11 @@
+namespace Reptile
+{
+	public enum BoosterEvent
+	{
+		BOOSTERS_PICKEDUP,
+		BOOSTERS_GREEN_PICKEDUP,
+		BOOSTERS_RED_PICKEDUP,
+		BOOSTERS_COMBO_PICKEDUP,
+		COUNT
+	}
+}

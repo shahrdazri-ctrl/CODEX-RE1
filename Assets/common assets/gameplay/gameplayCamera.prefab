@@ -1,0 +1,182 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1709254077376921
+GameObject:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Component:
+  - component: {fileID: 4730242686860875}
+  - component: {fileID: 20724804207875695}
+  - component: {fileID: 124618682377417806}
+  - component: {fileID: 81703437598541787}
+  - component: {fileID: 114884547391421755}
+  m_Layer: 0
+  m_Name: gameplayCamera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4730242686860875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7076106, y: 7.57, z: -0.37145495}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
+--- !u!20 &20724804207875695
+Camera:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.1
+  far clip plane: 1000
+  field of view: 64
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 3002574355
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!124 &124618682377417806
+FlareLayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+--- !u!81 &81703437598541787
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+--- !u!114 &114884547391421755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709254077376921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20c5eccb690d23aca0356dfc8acbfb2, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  lookAngleLowest: -45
+  lookAngleHighest: 50
+  lookAtSharpness: 50
+  lookAtVertSharpness: 18
+  postureOffsetSharpness: 10
+  topLocalLookAt: 1.4
+  bottomLocalLookAt: -0.18
+  obstructionCheckRadius: 0.15
+  IgnoredColliders: []
+  joystickFactor: 1.5
+  mouseFactor: 0.5
+  mouseOrbitDoneDelay: 2
+  orbitFadeDuration: 5
+  cameraModeTransitionSpeed: 2
+  defaultCamHeight: 2.15
+  maxBelowPlayer: 0.83
+  maxAbovePlayer: 4.15
+  camHeightSharpness: 5
+  dragDistanceDefault: 2.9
+  dragDistanceMax: 3.55
+  orbitDistanceSharpness: 10
+  grindHeightOffsetDefault: 0.7
+  grindHeightOffsetAngleQuotient: 18
+  grindHeightOffsetMin: -1
+  grindHeightOffsetMax: 3.5
+  grindPushBehind: 3
+  grindTiltMax: 13
+  grindTiltSpeed: 6
+  wallrunPlayerCenterOffset: 1
+  wallrunPlayerYOffset: 1
+  wallrunDragBehind: 5.5
+  wallrunAwayFromWall: 1.3
+  wallrunTiltAngle: 33
+  vertSpeedThreshold: 8
+  vertFallAngle: 80
+  vertFallCamDist: 5
+  handplantCamDist: 3.5
+  handplantHeightOffsetDefault: 1
+  screenShakeProfileUltraLight:
+    shakePosMagnitude: 0.015
+    shakeRotMagnitude: 0
+    shakePosSpeed: 3
+    shakeRotSpeed: 1
+    shakeDecayEase: 20
+  screenShakeProfileExtraLight:
+    shakePosMagnitude: 0.03
+    shakeRotMagnitude: 0
+    shakePosSpeed: 5
+    shakeRotSpeed: 1
+    shakeDecayEase: 20
+  screenShakeProfileJustABitLighter:
+    shakePosMagnitude: 0.042
+    shakeRotMagnitude: 1
+    shakePosSpeed: 230
+    shakeRotSpeed: 60
+    shakeDecayEase: 20
+  screenShakeProfileLight:
+    shakePosMagnitude: 0.08
+    shakeRotMagnitude: 2
+    shakePosSpeed: 120
+    shakeRotSpeed: 27.5
+    shakeDecayEase: 20
+  screenShakeProfileMedium:
+    shakePosMagnitude: 0.2
+    shakeRotMagnitude: 4
+    shakePosSpeed: 100
+    shakeRotSpeed: 27.5
+    shakeDecayEase: 20
+  screenShakeProfileHeavy:
+    shakePosMagnitude: 0.6
+    shakeRotMagnitude: 9
+    shakePosSpeed: 50
+    shakeRotSpeed: 18
+    shakeDecayEase: 20

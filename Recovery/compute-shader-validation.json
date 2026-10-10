@@ -1,0 +1,212 @@
+[
+  {
+    "path": "Assets/ComputeShader/Waveform_6.compute",
+    "kernel": "KWaveformGather",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Waveform_6-KWaveformGather.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Waveform_6.compute",
+    "kernel": "KWaveformClear",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Waveform_6-KWaveformClear.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Histogram.compute",
+    "kernel": "KHistogramGather",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Histogram-KHistogramGather.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Histogram.compute",
+    "kernel": "KHistogramClear",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Histogram-KHistogramClear.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/AutoExposure_2.compute",
+    "kernel": "KAutoExposureAvgLuminance_fixed",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/AutoExposure_2-KAutoExposureAvgLuminance_fixed.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/AutoExposure_2.compute",
+    "kernel": "KAutoExposureAvgLuminance_progressive",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/AutoExposure_2-KAutoExposureAvgLuminance_progressive.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Texture3DLerp_7.compute",
+    "kernel": "KTexture3DLerp",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Texture3DLerp_7-KTexture3DLerp.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Texture3DLerp_7.compute",
+    "kernel": "KTexture3DLerpToColor",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Texture3DLerp_7-KTexture3DLerpToColor.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Vectorscope_8.compute",
+    "kernel": "KVectorscopeGather",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Vectorscope_8-KVectorscopeGather.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Vectorscope_8.compute",
+    "kernel": "KVectorscopeClear",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Vectorscope_8-KVectorscopeClear.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVORender_7.compute",
+    "kernel": "MultiScaleVORender",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVORender_7-MultiScaleVORender.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVORender_7.compute",
+    "kernel": "MultiScaleVORender_interleaved",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVORender_7-MultiScaleVORender_interleaved.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVORender_7.compute",
+    "kernel": "MultiScaleVORender_MSAA",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVORender_7-MultiScaleVORender_MSAA.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVORender_7.compute",
+    "kernel": "MultiScaleVORender_MSAA_interleaved",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVORender_7-MultiScaleVORender_MSAA_interleaved.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Lut3DBaker_3.compute",
+    "kernel": "KGenLut3D_NoTonemap",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Lut3DBaker_3-KGenLut3D_NoTonemap.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Lut3DBaker_3.compute",
+    "kernel": "KGenLut3D_AcesTonemap",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Lut3DBaker_3-KGenLut3D_AcesTonemap.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Lut3DBaker_3.compute",
+    "kernel": "KGenLut3D_NeutralTonemap",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Lut3DBaker_3-KGenLut3D_NeutralTonemap.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/Lut3DBaker_3.compute",
+    "kernel": "KGenLut3D_CustomTonemap",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/Lut3DBaker_3-KGenLut3D_CustomTonemap.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/ExposureHistogram_1.compute",
+    "kernel": "KEyeHistogram",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/ExposureHistogram_1-KEyeHistogram.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/ExposureHistogram_1.compute",
+    "kernel": "KEyeHistogramClear",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/ExposureHistogram_1-KEyeHistogramClear.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVODownsample2_1.compute",
+    "kernel": "MultiScaleVODownsample2",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVODownsample2_1-MultiScaleVODownsample2.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVODownsample2_1.compute",
+    "kernel": "MultiScaleVODownsample2_MSAA",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVODownsample2_1-MultiScaleVODownsample2_MSAA.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/GaussianDownsample_5.compute",
+    "kernel": "KMain",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/GaussianDownsample_5-KMain.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVODownsample1_0.compute",
+    "kernel": "MultiScaleVODownsample1",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVODownsample1_0-MultiScaleVODownsample1.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVODownsample1_0.compute",
+    "kernel": "MultiScaleVODownsample1_MSAA",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVODownsample1_0-MultiScaleVODownsample1_MSAA.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVOUpsample_5.compute",
+    "kernel": "MultiScaleVOUpSample",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVOUpsample_5-MultiScaleVOUpSample.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVOUpsample_5.compute",
+    "kernel": "MultiScaleVOUpSample_invert",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVOUpsample_5-MultiScaleVOUpSample_invert.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVOUpsample_5.compute",
+    "kernel": "MultiScaleVOUpSample_premin",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVOUpsample_5-MultiScaleVOUpSample_premin.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVOUpsample_5.compute",
+    "kernel": "MultiScaleVOUpSample_blendout",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVOUpsample_5-MultiScaleVOUpSample_blendout.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVOUpsample_5.compute",
+    "kernel": "MultiScaleVOUpSample_premin_blendout",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVOUpsample_5-MultiScaleVOUpSample_premin_blendout.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVOUpsample_5.compute",
+    "kernel": "MultiScaleVOUpSample_MSAA",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVOUpsample_5-MultiScaleVOUpSample_MSAA.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVOUpsample_5.compute",
+    "kernel": "MultiScaleVOUpSample_MSAA_invert",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVOUpsample_5-MultiScaleVOUpSample_MSAA_invert.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVOUpsample_5.compute",
+    "kernel": "MultiScaleVOUpSample_MSAA_premin",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVOUpsample_5-MultiScaleVOUpSample_MSAA_premin.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVOUpsample_5.compute",
+    "kernel": "MultiScaleVOUpSample_MSAA_blendout",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVOUpsample_5-MultiScaleVOUpSample_MSAA_blendout.comp.hlsl\n"
+  },
+  {
+    "path": "Assets/ComputeShader/MultiScaleVOUpsample_5.compute",
+    "kernel": "MultiScaleVOUpSample_MSAA_premin_blendout",
+    "success": true,
+    "log": "/workspace/CODEX-RE1/.tools/compute-check/MultiScaleVOUpsample_5-MultiScaleVOUpSample_MSAA_premin_blendout.comp.hlsl\n"
+  }
+]

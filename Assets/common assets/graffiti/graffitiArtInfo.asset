@@ -1,0 +1,573 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa72dfdb4558b8449d56056d191a34c, type: 3}
+  m_Name: graffitiArtInfo
+  m_EditorClassIdentifier:
+  graffitiArt:
+  - graffitiMaterial: {fileID: 2100000, guid: 090ad56d2296d3940bd28467a221bfee, type: 2}
+    title: Red
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 229be15d29ead9c4da15cb138ac17f8a, type: 2}
+    title: ‘F’ Is For Family
+    artistName: Koen Roetman
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 1645ee18df926b448be870876c53f113, type: 2}
+    title: 8O TUP
+    artistName: Zedz
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: c7814266ce8b3f940a768585f8fd55af, type: 2}
+    title: Elegant E
+    artistName: NRG1
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 36524f0415e82e044a772a8d564b3015, type: 2}
+    title: QUICK BING
+    artistName: Andreas „SMOE“ Plautz
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: bddbb208cf546094f929bd942369a465, type: 2}
+    combos: 4231
+  - graffitiMaterial: {fileID: 2100000, guid: 55f50d6e3f6d9b44e8fb79d42358b636, type: 2}
+    title: Zona Leste
+    artistName: Mes3
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 4ef2d0ccdb41e1d45a3012bbd0e4ac03, type: 2}
+    combos: 1243
+  - graffitiMaterial: {fileID: 2100000, guid: d94c31a73fc1d59469e8481021bbfb9f, type: 2}
+    title: Stacked Symbols
+    artistName: NRG1
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: a1dc24c3e7b02f14daeb55d25a5e00e3, type: 2}
+    combos: 4123
+  - graffitiMaterial: {fileID: 2100000, guid: 5a63fb1c89f57844f8ea1d619bd4ef1b, type: 2}
+    title: All Screws Loose
+    artistName: Koen Roetman
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 273b0d8297259f045926578c7e53680c, type: 2}
+    combos: 4321
+  - graffitiMaterial: {fileID: 2100000, guid: bfaa9690eef2e284d838030be79a427c, type: 2}
+    title: Constellation Circle
+    artistName: NRG1
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 13857012f0568eb46a320cfaca7d4af3, type: 2}
+    combos: 3421
+  - graffitiMaterial: {fileID: 2100000, guid: e43f34292cd23c342bb32fb88cdf12e7, type: 2}
+    title: SHOGUN
+    artistName: KAZOO
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: d05be521cab96de41a5f4e8bc8a61ab4, type: 2}
+    combos: 3142
+  - graffitiMaterial: {fileID: 2100000, guid: ca79837daca59ea429361e16a6ade178, type: 2}
+    title: 8 MINUTES OF LEAN MEAN
+    artistName: Zedz
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: a42fbf4e042f3fc49b3ff3f6c40a95e1, type: 2}
+    combos: 2314
+  - graffitiMaterial: {fileID: 2100000, guid: 3c06a98dc9cda0e408cfa164d1d43a33, type: 2}
+    title: BLOCKY
+    artistName: Andrew Huerta
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 6801729a0308f5e45996f34e378eb6e4, type: 2}
+    combos: 2413
+  - graffitiMaterial: {fileID: 2100000, guid: 64afd208b8e9d6347a91f8c41b542537, type: 2}
+    title: pico pow
+    artistName: Yapico
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 6f39b88d5129abc4186a368ea0709ffa, type: 2}
+    combos: 4213
+  - graffitiMaterial: {fileID: 2100000, guid: e0cbc67d5c66a3a4c93615da7a6cb9fc, type: 2}
+    title: colorBOMB
+    artistName: MegaSmer
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: a08492d027e930c4aa3e554890cf691c, type: 2}
+    combos: 2143
+  - graffitiMaterial: {fileID: 2100000, guid: bd772f3fff0592849ab5b8ec3b1fee3d, type: 2}
+    title: Vom'B
+    artistName: Leo Bruno
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 87426443ab1a96d42bb36db38c6bcd45, type: 2}
+    combos: 1342
+  - graffitiMaterial: {fileID: 2100000, guid: ba67947ff8488e74bb0b8d9b714b4136, type: 2}
+    title: SPRAYTANICPANIC!
+    artistName: Joey Flores
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: f521db8a3aede394f8686fb8e68806e3, type: 2}
+    combos: 1432
+  - graffitiMaterial: {fileID: 2100000, guid: e790573ee4e1864409f55946fd26256b, type: 2}
+    title: BOMB BEATS
+    artistName: Ed Panopio
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: c4da8090c33bc374791236d077226ca9, type: 2}
+    combos: 1324
+  - graffitiMaterial: {fileID: 2100000, guid: e07e5ee6c0108104bb91a7ebf0d3f307, type: 2}
+    title: Pora
+    artistName: Chobaka
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 7e3df13d80178ee45ba3ef92df4a1b12, type: 2}
+    combos: 2431
+  - graffitiMaterial: {fileID: 2100000, guid: 87ee7daf9f71d9248a0c394927b6f45d, type: 2}
+    title: TeleBinge
+    artistName: Kelli VDB
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 9f6c106f66f0a4d4fa2cea80897e2a0b, type: 2}
+    combos: 3124
+  - graffitiMaterial: {fileID: 2100000, guid: 253f1d100c8601e4f8448230c8e2b86f, type: 2}
+    title: B-boy Love
+    artistName: TheGreyNinja
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: dfd7eebd699362a498939b22cc57c6d2, type: 2}
+    combos: 2134
+  - graffitiMaterial: {fileID: 2100000, guid: aaae8555b88b911448e07bb0ca3fe362, type: 2}
+    title: Thick Candy
+    artistName: Mathew Prada
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: ea23cc437ec05eb4c9348e04dff60050, type: 2}
+    combos: 3412
+  - graffitiMaterial: {fileID: 2100000, guid: 14a8a66102edf9544bb4b84eb5028347, type: 2}
+    title: 0m33
+    artistName: Lariato Corp
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: fe7b81f88fc190643a2d29e0e7c54028, type: 2}
+    combos: 2341
+  - graffitiMaterial: {fileID: 2100000, guid: e70390d80a083a34f833b257848bfd0f, type: 2}
+    title: Street classic
+    artistName: Mathew Prada
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 6915724dc6e198b44bdb41d84a1d0182, type: 2}
+    combos: 3241
+  - graffitiMaterial: {fileID: 2100000, guid: 9e5816d10f97dea46be1dcfbe307e045, type: 2}
+    title: OVERWHELMME
+    artistName: 3DROD
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 5c22e98fe5210da4ea84b50aeded30b6, type: 2}
+    combos: 1423
+  - graffitiMaterial: {fileID: 2100000, guid: 8a929cf559a6052469941f01d1ff7de2, type: 2}
+    title: Devil 68
+    artistName: Will Dayer
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 93061e462ed05134aafd94edf57e7719, type: 2}
+    combos: 4132
+  - graffitiMaterial: {fileID: 2100000, guid: beccacf98df355440bb0051eb974f6d3, type: 2}
+    title: WHOLE SIXER
+    artistName: Andreas „SMOE“ Plautz
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 6e79ff71dc1200543ad2623cb1ffb85f, type: 2}
+    combos: 53412
+  - graffitiMaterial: {fileID: 2100000, guid: f020783b753880042baab0ef6a816f35, type: 2}
+    title: INFINITY
+    artistName: Andrew Huerta
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: e4f9462aa82f1454fa5d8653be62dd84, type: 2}
+    combos: 42351
+  - graffitiMaterial: {fileID: 2100000, guid: ccc5d2d19b6e2e7469640e85945a0736, type: 2}
+    title: NOISY NINJA
+    artistName: KAZOO
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: ade39b8824b337746a18ebbf25e07655, type: 2}
+    combos: 41325
+  - graffitiMaterial: {fileID: 2100000, guid: c3f6f024719cf1240b16931ef4fa2225, type: 2}
+    title: Dinner On The Court
+    artistName: Koen Roetman
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 66205d71a9cb3f14ab822b8d3abc1a2d, type: 2}
+    combos: 54321
+  - graffitiMaterial: {fileID: 2100000, guid: 78cb79b55747d0d4b8ff3530cb00db8d, type: 2}
+    title: Jd Vila Formosa
+    artistName: Mes3
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 3e010adc7ce920a4b8b356e1974918b1, type: 2}
+    combos: 45123
+  - graffitiMaterial: {fileID: 2100000, guid: 8cb2c30479148f24fbdb7637dfa875f9, type: 2}
+    title: Messenger Mural
+    artistName: NRG1
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 0770c788db4ec214fba655c0bc74e331, type: 2}
+    combos: 31542
+  - graffitiMaterial: {fileID: 2100000, guid: f811324273b7f5f47b85ec0e0500edf2, type: 2}
+    title: DIGITAL BLOCKBUSTER
+    artistName: Zedz
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 8036f0c273892f442a8613cda41d38ca, type: 2}
+    combos: 23415
+  - graffitiMaterial: {fileID: 2100000, guid: 17146f5f1080dcc4582f3aa981303fbf, type: 2}
+    title: skate or di3
+    artistName: MegaSmer
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 627291a1d72fb5c4ab3054669445ada3, type: 2}
+    combos: 34512
+  - graffitiMaterial: {fileID: 2100000, guid: 23fecb5ec15a45143ae27abb2199045d, type: 2}
+    title: VoodooBoy
+    artistName: CHENT SANCHEZ
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 094b85f902f8f8343b7731cc236bc10a, type: 2}
+    combos: 15234
+  - graffitiMaterial: {fileID: 2100000, guid: 95412be1c2afffc44807de120a43830e, type: 2}
+    title: Boom
+    artistName: Riff
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 6f88a97fae1d1474c9eafbfb98403bd6, type: 2}
+    combos: 15432
+  - graffitiMaterial: {fileID: 2100000, guid: 8b423b5a530935b4ea742f20eb39f93c, type: 2}
+    title: buttercup
+    artistName: Yapico
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 3016fbb3d9d056445b5ad2ba6d339bf2, type: 2}
+    combos: 43512
+  - graffitiMaterial: {fileID: 2100000, guid: e53920460989f9a42a0b1a288f7c8e7f, type: 2}
+    title: Solstice Script
+    artistName: NRG1
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: a789368e8a6e75f4c8074ad5661ffd1c, type: 2}
+    combos: 35241
+  - graffitiMaterial: {fileID: 2100000, guid: bd0c37df17c78364baf73c66b4dc3490, type: 2}
+    title: Moai Marathon
+    artistName: IMP
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 766a3dc337390ac45ae89084949435c4, type: 2}
+    combos: 14352
+  - graffitiMaterial: {fileID: 2100000, guid: 77b68b62a4f8a3b41a133cbcf452da46, type: 2}
+    title: Tius
+    artistName: Jade stripes
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 065256668ed54ff498efe7d3b775ebb0, type: 2}
+    combos: 21354
+  - graffitiMaterial: {fileID: 2100000, guid: 807f593db30d295438e6c38efedcd2a2, type: 2}
+    title: FREAKS
+    artistName: evilsk8r
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 4c0473290c25e794485b4b87148060e7, type: 2}
+    combos: 54132
+  - graffitiMaterial: {fileID: 2100000, guid: 28bd5f1f0eab75342b31fae1feee2089, type: 2}
+    title: SpawningSeason
+    artistName: ICKYPATCHI
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 08d316bda358de04694c3040ca3b8ec0, type: 2}
+    combos: 52134
+  - graffitiMaterial: {fileID: 2100000, guid: 4f7650064510b90458d668e1b4a9709a, type: 2}
+    title: Fang It Up!
+    artistName: Denzel Sterling
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 93ff67f5d94ff064b8f45c3e2e89e8f9, type: 2}
+    combos: 32154
+  - graffitiMaterial: {fileID: 2100000, guid: d9412b991278f624b9f3aa7185626606, type: 2}
+    title: Graffo Le Fou
+    artistName: Greunouylle
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 370c9bab0c5a62a4b97f6664bdd47ef5, type: 2}
+    combos: 24531
+  - graffitiMaterial: {fileID: 2100000, guid: 76d981ccc49873147b3a52416df70e48, type: 2}
+    title: RECORD.HEAD
+    artistName: Patrick 'Tek-man' Gordon
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: cd5a03bf38c0ff341a8c198003685a0e, type: 2}
+    combos: 51243
+  - graffitiMaterial: {fileID: 2100000, guid: 02045afe6826d5346a64b0d6b5cc5088, type: 2}
+    title: Campaign Trail
+    artistName: Leo Bruno
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: fa31c6835ea4ad64080a0be0c43e17f7, type: 2}
+    combos: 13245
+  - graffitiMaterial: {fileID: 2100000, guid: 7968ab9566344dd4193ec8fefd8eaa09, type: 2}
+    title: Lauder
+    artistName: HestFTV
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 70010b950f9460b4ca99efbcb474032f, type: 2}
+    combos: 32541
+  - graffitiMaterial: {fileID: 2100000, guid: d18dfda135d740649bad2ffa5dd44a4a, type: 2}
+    title: WILD STRUXXA
+    artistName: Andreas „SMOE“ Plautz
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 4d283b3c1bcdc214fb8d3465f19b734f, type: 2}
+    combos: 635421
+  - graffitiMaterial: {fileID: 2100000, guid: 6c74fdcba85fb2e4ea6127b431765f18, type: 2}
+    title: VIBRATIONS
+    artistName: Andrew Huerta
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: e4d3284d9f61ed34b8afa0759da76a32, type: 2}
+    combos: 523461
+  - graffitiMaterial: {fileID: 2100000, guid: f11a4da6df70c31438a939f0c6576391, type: 2}
+    title: MOTORCYCLE GANG
+    artistName: KAZOO
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 864acf550216d5b439f91c3a2f21c167, type: 2}
+    combos: 312456
+  - graffitiMaterial: {fileID: 2100000, guid: c4935c9a9fe1e7f459902aa44b795de9, type: 2}
+    title: Don’t Screw Around
+    artistName: Koen Roetman
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 0393e781957e40640827ece63aaa49db, type: 2}
+    combos: 654321
+  - graffitiMaterial: {fileID: 2100000, guid: fae54cb5817a8c348845eceb642115a9, type: 2}
+    title: MegaHood
+    artistName: MegaSmer
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 803a777879e6f6a40a7cd13928d11ff4, type: 2}
+    combos: 453261
+  - graffitiMaterial: {fileID: 2100000, guid: aed2ba30a2b4c7640b5732ffd6b907d9, type: 2}
+    title: Gamex UPA ABL
+    artistName: Mes3
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: d28ea0bd50d36a146b402502114c1aa7, type: 2}
+    combos: 324561
+  - graffitiMaterial: {fileID: 2100000, guid: 74a7a63b6ae39ce43a45d998b0776b96, type: 2}
+    title: headphones on Helmet on
+    artistName: Yapico
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 5c98f6de2c1788b4082fdc7b06aa59bc, type: 2}
+    combos: 425631
+  - graffitiMaterial: {fileID: 2100000, guid: cebb022207ad2ff46bfb941814c43664, type: 2}
+    title: Bomb Burner
+    artistName: NRG1
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 52ba91541900d824a924e2793b947fe0, type: 2}
+    combos: 265431
+  - graffitiMaterial: {fileID: 2100000, guid: 2357fe8d4ff7ad24a8b1d1958d1ee00a, type: 2}
+    title: Astrological Augury
+    artistName: NRG1
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 0a4a32beb0cdbcf4aa1818951ed73c19, type: 2}
+    combos: 362514
+  - graffitiMaterial: {fileID: 2100000, guid: 0f7cdcdc9ce5c844e8c0c93235697307, type: 2}
+    title: HIGH TECH WS
+    artistName: Zedz
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: bd9918b998ba72c43b768173fd2ba96e, type: 2}
+    combos: 345216
+  - graffitiMaterial: {fileID: 2100000, guid: 0b1d9d01d5c68f146b714b717548e3cf, type: 2}
+    title: Web Spitter
+    artistName: JOEYREX
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 43b6a3081e806894ea3725faf99f8626, type: 2}
+    combos: 243156
+  - graffitiMaterial: {fileID: 2100000, guid: c3a7f7d9525ced340a43361eefd64337, type: 2}
+    title: SECOND SIGHT
+    artistName: evilsk8r
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 2902cf0fb7d581342815a5a0d03ae345, type: 2}
+    combos: 642513
+  - graffitiMaterial: {fileID: 2100000, guid: 9f8ea44aca2560446a39555832fe7fbe, type: 2}
+    title: FATE
+    artistName: Jehcee
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 7dbd423cda90f5940b923fe83c0bff5a, type: 2}
+    combos: 564132
+  - graffitiMaterial: {fileID: 2100000, guid: dc7bcf7bb9ea64242a465d29b3f52a91, type: 2}
+    title: Pirate's Life 4 Me
+    artistName: 'PirateGhostDJ '
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 25d5a29ed64e19c458f227a5b141a1e7, type: 2}
+    combos: 542316
+  - graffitiMaterial: {fileID: 2100000, guid: 74259b3c5117ab34e875776f27e8a8e3, type: 2}
+    title: BiGSHiNYBoMB
+    artistName: MIKE SUNDAY
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 217ba48818ec2ab469a1a3232e1b9ac2, type: 2}
+    combos: 465132
+  - graffitiMaterial: {fileID: 2100000, guid: 04414051fa930864d9c1b439edaa910c, type: 2}
+    title: Deep Dive
+    artistName: Leo Bruno
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 45af4770bf5043344a7f359a25fef587, type: 2}
+    combos: 531426
+  - graffitiMaterial: {fileID: 2100000, guid: f3a012fa6cca9eb48b09fbb26af9b70b, type: 2}
+    title: Bombing by FireMan
+    artistName: REP.SHADE
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: c2f5a840cc56def4bbf9adb28f3fc609, type: 2}
+    combos: 235146
+  - graffitiMaterial: {fileID: 2100000, guid: 66c00c788cdadec4ea093dea4d9ff0e3, type: 2}
+    title: Gold Rush
+    artistName: 2NES
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 8b7af4d5f08ad874a9d94cc7ac5ed42e, type: 2}
+    combos: 162354
+  - graffitiMaterial: {fileID: 2100000, guid: bb0d86057eb68a54fbcb129c082a2a24, type: 2}
+    title: Raver Funk
+    artistName: Will Dayer
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 103970e64a1b97b45b0f5b44f14e68b2, type: 2}
+    combos: 624351
+  - graffitiMaterial: {fileID: 2100000, guid: 0d02a7e0befe3e34c9470acc3b262216, type: 2}
+    title: Bomb Croc
+    artistName: JAWGEM
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 9aac00c43009bd545b5cc54cdca0bb96, type: 2}
+    combos: 135426
+  - graffitiMaterial: {fileID: 2100000, guid: 10d6ee8332068844eb84b7bec02357d0, type: 2}
+    title: Teddy 4
+    artistName: Dion Koster
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 4d4e6f81d309bfc45802f02f99a71db7, type: 2}
+    combos: 4312
+  - graffitiMaterial: {fileID: 2100000, guid: 442b39197e7fb714cbd11cf94d4cc34b, type: 2}
+    title: EVIL DARUMA
+    artistName: KAZOO
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 168d94c4fcb91c042af1fbcd1eb6bca6, type: 2}
+    combos: 1234
+  - graffitiMaterial: {fileID: 2100000, guid: b963b41663e2dad4992d14a969295d22, type: 2}
+    title: KANI-BOZU
+    artistName: KAZOO
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 52d5703e21c5a5742bee8eeb1031efe9, type: 2}
+    combos: 12435
+  - graffitiMaterial: {fileID: 2100000, guid: cfb764648c4c50c439e950b1a1ad5b38, type: 2}
+    title: DT
+    artistName: KAZOO
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: b3f8d0add0db93942a1f6ffb9821045d, type: 2}
+    title: CYBER TENGU
+    artistName: KAZOO
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 5270f96d31ca37a41953cbe4bdc2d16f, type: 2}
+    combos: 123546
+  - graffitiMaterial: {fileID: 2100000, guid: 258ce5d6cf8052c43b8da56a43bb1d94, type: 2}
+    title: end 2 end
+    artistName: Smoke1
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 3949d9de177bf5b499da2a0366f92b89, type: 2}
+    combos: 156342
+  - graffitiMaterial: {fileID: 2100000, guid: 2b8737db3ea384942886a41d6fe641cf, type: 2}
+    title: wild rush
+    artistName: Smoke1
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 60135b1d6578e2444a74c15d41970266, type: 2}
+    combos: 25431
+  - graffitiMaterial: {fileID: 2100000, guid: 0e5b7fcdab427ce4fb1f8a5f6babad96, type: 2}
+    title: Felix
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 70b24b64a6f9c684abc3ef83cf83e093, type: 2}
+    title: Shine
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: d721c162c89a218418944ab6e54e7023, type: 2}
+    title: Rise
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 5c124fc438da9634e8b4f5f11cd65493, type: 2}
+    title: Faux
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: d9680bad0cd52db44b53d531fd4f5c64, type: 2}
+    title: Coil
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: a168b80afada68c499e66ee62d129424, type: 2}
+    title: Solace
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 9a0fcd7633eefcd49a36034a7fdb2ce5, type: 2}
+    title: Rave
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 811e24dc6f877bf4da6d33d10ec890a6, type: 2}
+    title: Tryce
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: b469f24e353034d449bc3875b3fabbf1, type: 2}
+    title: Bel
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 4444ee729ff5ee94b96f7a3fbd907e44, type: 2}
+    title: Mesh
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 8a88c15f512c2ea48bb2e0892327926e, type: 2}
+    title: Vinyl
+    artistName: Dion
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 10773c94999d4f3449391235827a6666, type: 2}
+    title: Flow
+    artistName: BAKERONER
+    graffitiSize: 1
+    unlockable: {fileID: 11400000, guid: 6314d466dcff94a4dbe00fbe3e48bdbe, type: 2}
+    combos: 3214
+  - graffitiMaterial: {fileID: 2100000, guid: 3db546166c9586e40bb6ecb2aa9b9257, type: 2}
+    title: Dynamo
+    artistName: BAKERONER
+    graffitiSize: 2
+    unlockable: {fileID: 11400000, guid: 72519034218a2e542957aefe7cf7d65b, type: 2}
+    combos: 43521
+  - graffitiMaterial: {fileID: 2100000, guid: 7e86648aa997d3747bb6acff8eb352d8, type: 2}
+    title: Eye-con
+    artistName: BAKERONER
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 1b65f18fc08db3042ad040c1fa0cc694, type: 2}
+    title: Bevel
+    artistName: BAKERONER
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: 10cc0e8ff13bcde45a920189cc7dab23, type: 2}
+    combos: 436521
+  - graffitiMaterial: {fileID: 2100000, guid: 68ff18e2239acc64e928050c4eb53a27, type: 2}
+    title: Bomb Universe
+    artistName: Snars
+    graffitiSize: 3
+    unlockable: {fileID: 11400000, guid: ae32a25b1eda5e340ba7aeff77bac203, type: 2}
+    combos: 213654
+  - graffitiMaterial: {fileID: 2100000, guid: 1c8561f306a1df64bae9b84b9c6bb94f, type: 2}
+    title: Boombap
+    artistName: Sem
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: 5ffbb3acb3c86ec4089dfa7766ca8d9e, type: 2}
+    title: Jay
+    artistName: Sem
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: fff1fcb60794645468f87a8179ba0a4c, type: 2}
+    title: Irene
+    artistName: Sem
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1
+  - graffitiMaterial: {fileID: 2100000, guid: cddc95b5acfab0941ad6240672efefc7, type: 2}
+    title: Swipe
+    artistName: Sem
+    graffitiSize: 0
+    unlockable: {fileID: 0}
+    combos: -1

@@ -1,0 +1,35 @@
+{
+  "game": "Bomb Rush Cyberfunk",
+  "drive_file_id": "1GYpFyG9_bcITavlTG5tThpcYw0WB7zvZ",
+  "archive_sha256": "9e7bac703f9b48b2d10787f771b3e85840484f001d05bd345babf7e8a57ddedb",
+  "archive_kind": "ZIP containing a Windows installer repack",
+  "zip_crc_verified": true,
+  "installer_payload_md5_verified": true,
+  "installer_payload_md5": {
+    "fg-01.bin": "0f6bfcba445c10c07f3a4b95b1700c02",
+    "fg-02.bin": "cd2d4c9bfc27941e590fd0502aebbc24",
+    "fg-03.bin": "82f442a25d0b87d85f7ac77ece73da57",
+    "fg-04.bin": "533d20fa221f2f465750758c9949f1b0"
+  },
+  "original_source_project_in_input": false,
+  "recovery_status": "All 253 installed manifest files verified; Unity assets and runtime source exported. Unity Editor import and play checks pending locally.",
+  "intermediate_payload_integrity": {
+    "crc32_polynomial": "0x0895171b",
+    "algorithm": "Reflected table CRC, initial and final XOR 0xffffffff",
+    "verified_before_postprocessing": [
+      {
+        "name": "inner.fgpack",
+        "size": 848699915,
+        "expected_crc32": "0xf2313c4b",
+        "actual_crc32": "0xf2313c4b"
+      },
+      {
+        "name": "inner.fgpack.x5",
+        "size": 53294803,
+        "expected_crc32": "0xf0806637",
+        "actual_crc32": "0xf0806637"
+      }
+    ]
+  },
+  "bundle_unity_version": "2021.3.27f1"
+}
